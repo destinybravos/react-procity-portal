@@ -1,44 +1,22 @@
 import './App.css'
-import logo from './assets/images/logo.png';
+import PageHeader from './components/PageHeader';
+import DataComponent from './components/dummy/DataComponent';
+import ParentComponent from './components/dummy/ParentComponent';
 
 function App() {
 
   return (
     <div>
-      <header className="bg-primary min-h-[30px] text-white">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          {/* Logo Side */}
-          <aside className='py-2'>
-            <img src={logo} alt="logo" className='h-10' />
-          </aside>
+      <PageHeader />
 
-          {/* Navigation */}
-          <aside>
-            <ul>
-              <li className="inline-block">
-                <a href="" className='py-2 px-4'>
-                  Home
-                </a>
-              </li>
-              <li className="inline-block">
-                <a href="" className='py-2 px-4'>
-                  About Us
-                </a>
-              </li>
-              <li className="inline-block">
-                <a href="" className='py-2 px-4'>
-                  Our Services
-                </a>
-              </li>
-              <li className="inline-block">
-                <a href="" className='py-2 px-4 rounded-md bg-teal-500'>
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </aside>
-        </div>
-      </header>
+      <DataComponent name="John" age="50" />
+
+      <ParentComponent no_cols={4} >
+          <div className="h-20 bg-red-300 shadow"></div>
+          <div className="h-20 bg-red-300 shadow"></div>
+          <div className="h-20 bg-red-300 shadow"></div>
+          <div className="h-20 bg-red-300 shadow"></div>
+      </ParentComponent>
     </div>
   )
 }
