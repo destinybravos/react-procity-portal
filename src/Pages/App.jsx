@@ -1,7 +1,7 @@
-import './App.css'
-import PageHeader from './components/PageHeader';
-import DataComponent from './components/dummy/DataComponent';
-import ParentComponent from './components/dummy/ParentComponent';
+import './../App.css'
+import PageHeader from '../components/PageHeader';
+import DataComponent from '../components/dummy/DataComponent';
+import ParentComponent from '../components/dummy/ParentComponent';
 
 function App() {
 
