@@ -1,13 +1,11 @@
 import './../App.css'
-import PageHeader from '../components/PageHeader';
 import DataComponent from '../components/dummy/DataComponent';
 import ParentComponent from '../components/dummy/ParentComponent';
 
-function App() {
+function Home() {
 
   return (
     <div>
-      <PageHeader />
 
       <DataComponent name="John" age="50" />
 
@@ -21,4 +19,4 @@ function App() {
   )
 }
 
-export default App
+export default Home
