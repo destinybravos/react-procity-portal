@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 import logo from './../assets/images/logo.png';
+import { BiLogIn } from 'react-icons/bi';
+
+
 const PageHeader = () => {
     return (
         <header className="bg-primary min-h-[30px] text-white">
@@ -28,10 +31,14 @@ const PageHeader = () => {
                     </Link>
                 </li>
                 <li className="inline-block">
-                    {/* The Anchor Tag will reload while navigating */}
-                    <a href="reach-us" className='py-2 px-4 rounded-md bg-teal-500'>
+                    <Link to="/reach-us" className='py-2 px-4'>
                         Contact Us
-                    </a>
+                    </Link>
+                </li>
+                <li className="inline-block">
+                    <Link to="login" className='py-2 px-4 rounded-md bg-teal-500 block'>
+                        <BiLogIn className='inline h-5 w-5' /> Login
+                    </Link>
                 </li>
                 </ul>
             </aside>
