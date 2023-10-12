@@ -1,11 +1,42 @@
 import { FaEnvelope, FaKey } from 'react-icons/fa6';
 import { BiLogIn } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import PrimaryButton from '../../components/PrimaryButton';
+import axios from 'axios';
+import { useState } from 'react';
+import Alert from '../../components/Alert';
 
 const Login = () => {
+  const baseUrl =  'http://localhost/procity-portal';
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertMsg, setAlertMsg] = useState('');
+    const [alertType, setAlertType] = useState('info');
+
+
+    const navigate = useNavigate();
+    const loginUser = (e) => {
+        e.preventDefault();
+        let formData = new FormData(e.target);
+        axios.post(`${baseUrl}/server/login_handler.php`, formData)
+        .then((response) => {
+            if(response.data.status == 'success'){
+                sessionStorage.setItem('active_user', JSON.stringify(response.data.user));
+                sessionStorage.setItem('token', response.data.access_token); 
+                navigate("/dashboard");
+            }
+        })
+        .catch((error) => {
+            setAlertMsg(error.response.data.message);
+            setAlertType('error');
+            setShowAlert(true)
+            console.log("Error", error.response.data.message);
+        });
+    }
+
   return (
     <div className="">
-      <form method="post" id="frm_login">
+      <Alert message={alertMsg} type={alertType} show={showAlert} onClose={() => setShowAlert(false)} />
+      <form method="post" id="frm_login" onSubmit={loginUser}>
         <div className="mb-4">
             <label htmlFor="email">
                 <FaEnvelope className="inline" /> Email Address
@@ -27,9 +58,9 @@ const Login = () => {
             </aside>
         </div>
         <div className="mb-4">
-            <button type="submit" className="bg-white py-1 px-4 rounded-md text-slate-800">
+            <PrimaryButton>
               <BiLogIn className="inline" /> Login
-            </button>
+            </PrimaryButton>
         </div>
       </form>
       <div className="text-center">

@@ -101,31 +101,31 @@ const BlogSection = () => {
               {/* <!-- display all fetured posts --> */}
               <div id="featured_posts" className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-20">
                 { (posts && posts.length > 0) && posts.map((post) => (
-                                      <aside className="rounded-lg shadow bg-white" key={post.id}>
-                                        <div className="h-44 bg-slate-300 flex justify-center items-center rounded-t-lg">
-                                            <img src={`${baseUrl}/public/images/blogs/${post.image}`} alt="Image" className="h-full min-w-full flex justify-center items-center" />
-                                        </div>
-                                        <div className="py-3 px-4">
-                                            <h1 className="mb-2 text-lg font-bold">{post.title}</h1>
-                                            <p className="mb-2 text-small line-clamp-3 max-h-[200px] overflow-y-hidden">
-                                                {post.body}
-                                            </p>
-                                            <p className="mb-2">
-                                                <a href="blogpost.php?post_id=${post.id}" className="hover:bg-primary border-primary border text-primary hover:text-white py-1 px-3 text-xs rounded-md italic">
-                                                    Read More
-                                                </a>
-                                            </p>
-                                            <small className="flex justify-between">
-                                                <div>
-                                                    Posted By: {post.author.uname}
-                                                </div>
-                                                <div>
-                                                    Posted On:  {(post.posted_on)}
-                                                </div>
-                                            </small>
-                                        </div>
-                                    </aside>
-                                ))}
+                    <aside className="rounded-lg shadow bg-white" key={post.id}>
+                      <div className="h-44 bg-slate-300 flex justify-center items-center rounded-t-lg">
+                          <img src={`${baseUrl}/public/images/blogs/${post.image}`} alt="Image" className="h-full min-w-full flex justify-center items-center" />
+                      </div>
+                      <div className="py-3 px-4">
+                          <h1 className="mb-2 text-lg font-bold">{post.title}</h1>
+                          <p className="mb-2 text-small line-clamp-3 max-h-[200px] overflow-y-hidden">
+                              {post.body}
+                          </p>
+                          <p className="mb-2">
+                              <a href="blogpost.php?post_id=${post.id}" className="hover:bg-primary border-primary border text-primary hover:text-white py-1 px-3 text-xs rounded-md italic">
+                                  Read More
+                              </a>
+                          </p>
+                          <small className="flex justify-between">
+                              <div>
+                                  Posted By: {post.author.uname}
+                              </div>
+                              <div>
+                                  Posted On:  {(post.posted_on)}
+                              </div>
+                          </small>
+                      </div>
+                  </aside>
+                ))}
               </div>
           </aside>
       </section>
